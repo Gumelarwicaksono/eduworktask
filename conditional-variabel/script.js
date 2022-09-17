@@ -36,5 +36,7 @@ let NaamaSiswa = [
 
 let n = NaamaSiswa.map((n) => n.nama + ' ' + n.namab);
 console.log(n);
-let a = NaamaSiswa.filter((a) => a.alamat == 'kp alur');
-console.log(a);
+let aset = NaamaSiswa.filter((fil) => {
+  return fil.alamat == 'kp alur' || fil.alamat == 'cikalong';
+});
+console.log(aset);
