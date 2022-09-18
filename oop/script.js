@@ -5,23 +5,23 @@ class library {
     this.datas = datas;
   }
 
+  func = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+      let row = `<tr>
+              <td>${arr[i][0]}</td>
+              <td>${arr[i][1]}</td>
+            </tr>
+            <tr>
+              <td>${arr[1][0]}</td>
+              <td>${arr[1][1]}</td>
+            </tr>
+            
+            `;
+      return row;
+    }
+  };
+
   render(e) {
-    let data = this.datas;
-    let func = (arr) => {
-      for (let i = 0; i < arr.length; i++) {
-        let row = `<tr>
-                <td>${arr[i][0]}</td>
-                <td>${arr[i][1]}</td>
-              </tr>
-              <tr>
-                <td>${arr[1][0]}</td>
-                <td>${arr[1][1]}</td>
-              </tr>
-              
-              `;
-        return row;
-      }
-    };
     let table = `
       <table class="table">
         <thead>
@@ -31,8 +31,7 @@ class library {
           </tr>
         </thead>
         <tbody id = "test">
-        ${func(data)}
-
+        ${this.func(this.datas)}
         </tbody>
         </table>
     `;
