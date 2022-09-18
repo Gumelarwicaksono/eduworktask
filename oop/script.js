@@ -8,7 +8,7 @@ class library {
   render(e) {
     let data = this.datas;
     let func = (arr) => {
-      for (let i = 0; arr.length; i++) {
+      for (let i = 0; i < arr.length; i++) {
         let row = `<tr>
                 <td>${arr[i][0]}</td>
                 <td>${arr[i][1]}</td>
