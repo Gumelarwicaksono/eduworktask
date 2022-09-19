@@ -6,19 +6,15 @@ class library {
   }
 
   func = (arr) => {
+    let row = '';
     for (let i = 0; i < arr.length; i++) {
-      let row = `<tr>
+      row += `<tr>
               <td>${arr[i][0]}</td>
               <td>${arr[i][1]}</td>
             </tr>
-            <tr>
-              <td>${arr[1][0]}</td>
-              <td>${arr[1][1]}</td>
-            </tr>
-            
             `;
-      return row;
     }
+    return row;
   };
 
   render(e) {
