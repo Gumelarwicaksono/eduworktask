@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <style>
+      th {
+        color: #fff;
+      }
+    </style>
+
+    <title>callback</title>
+  </head>
+  <body>
+    <table class="table table-striped">
+      <tr class="bg-success">
+        <th>id</th>
+        <th>name</th>
+        <th>user name</th>
+        <th>email</th>
+        <th>adress</th>
+        <th>phone</th>
+        <th>website</th>
+        <th>company</th>
+      </tr>
+
+      <tbody id="table"></tbody>
+    </table>
+
+    <script>
+      function getData(url, call) {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            return call(JSON.parse(xhr.responseText));
+          }
+        };
+        xhr.open('GET', url);
+        xhr.send();
+      }
+
+      const data = getData('https://jsonplaceholder.typicode.com/users', (dat) => {
+        let table = document.getElementById('table');
+        console.log(dat);
+        for (var i = 0; i < dat.length; i++) {
+          let row = `<tr>
+                        <td>${dat[i].id}</td>
+                        <td>${dat[i].name}</td>
+                        <td>${dat[i].username}</td>
+                        <td>${dat[i].email}</td>
+                        <td>${dat[i].address.street + ',' + dat[i].address.suite + ',' + dat[i].address.city + ',' + dat[i].address.zipcode + ',' + dat[i].address.geo.lat + ',' + dat[i].address.geo.lng}</td>
+                        <td>${dat[i].phone}</td>
+                        <td>${dat[i].website}</td>
+                        <td>${'name : ' + dat[i].company.name + ', catchphrase : ' + dat[i].company.catchPhrase + ', bs : ' + dat[i].company.bs}</td>
+                  </tr>`;
+          table.innerHTML += row;
+        }
+      });
+
+      const render = (dat) => {};
+    </script>
+  </body>
+</html>
