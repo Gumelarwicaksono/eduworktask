@@ -15,20 +15,21 @@
     <title>callback</title>
   </head>
   <body>
-    <table class="table table-striped">
-      <tr class="bg-success">
-        <th>id</th>
-        <th>name</th>
-        <th>user name</th>
-        <th>email</th>
-        <th>adress</th>
-        <th>phone</th>
-        <th>website</th>
-        <th>company</th>
-      </tr>
+    <div class="container mt-5 mb-5">
+      <h1>List Of User</h1>
+      <table class="table table-striped">
+        <tr class="bg-success">
+          <th>id</th>
+          <th>name</th>
+          <th>username</th>
+          <th>email</th>
+          <th>adress</th>
+          <th>company</th>
+        </tr>
 
-      <tbody id="table"></tbody>
-    </table>
+        <tbody id="table"></tbody>
+      </table>
+    </div>
 
     <script>
       function getData(url, call) {
@@ -51,10 +52,8 @@
                         <td>${dat[i].name}</td>
                         <td>${dat[i].username}</td>
                         <td>${dat[i].email}</td>
-                        <td>${dat[i].address.street + ',' + dat[i].address.suite + ',' + dat[i].address.city + ',' + dat[i].address.zipcode + ', lat :' + dat[i].address.geo.lat + ', lng :' + dat[i].address.geo.lng}</td>
-                        <td>${dat[i].phone}</td>
-                        <td>${dat[i].website}</td>
-                        <td>${'name : ' + dat[i].company.name + ', catchphrase : ' + dat[i].company.catchPhrase + ', bs : ' + dat[i].company.bs}</td>
+                        <td>${dat[i].address.street + ',' + dat[i].address.suite + ',' + dat[i].address.city}</td>
+                        <td>${dat[i].company.name}</td>
                   </tr>`;
           table.innerHTML += row;
         }
